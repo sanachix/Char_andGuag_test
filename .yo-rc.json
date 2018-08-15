@@ -1,0 +1,20 @@
+{
+  "generator-ngx-rocket": {
+    "version": "5.0.1",
+    "props": {
+      "location": "path",
+      "appName": " C_GTest",
+      "target": [
+        "web"
+      ],
+      "pwa": false,
+      "ui": "bootstrap",
+      "auth": false,
+      "lazy": false,
+      "angulartics": false,
+      "projectName": "c-g-test",
+      "packageManager": "npm",
+      "mobile": []
+    }
+  }
+}
