@@ -1,3 +1,320 @@
-<p>
-  charts works!
-</p>
+<dx-chart id="chart" 
+  [dataSource]="dataSource"
+  title="Pizza Shop Complaints"
+  palette="Harmony Light"
+  [valueAxis]="[{
+    name: 'frequency',
+    position:'left',
+    thickInterval:300},
+    {
+      name:'percentage',
+      position:'right',
+      showZero:true,
+      label:{
+        customizeText:customizeLabelText},
+      constantLines:[{
+        value:80,
+        color:'#fc3535',
+        dashStyle: 'dash',
+        width: 2,
+        label:{visible:false}
+      }],
+      thickInterval:20,
+      valueMarginsEnabled:false}]">
+
+      <dxo-argument-axis>
+        <dxo-label overlappingBehavior="stagger"></dxo-label>
+      </dxo-argument-axis>
+
+      <dxo-tooltip
+        [enabled]="true"
+        [shared]="true"
+        [customizeTooltip]="customizeTooltip">
+      </dxo-tooltip>
+
+      <dxo-common-series-settings argumentField = "complaint">
+      </dxo-common-series-settings>
+
+      <dxi-series 
+        type="bar"
+        valueField= "count"
+        axis="frequency"
+        name="Complaints frequency"
+        color="#fac29a">
+      </dxi-series>
+
+      <dxi-series 
+        type="spline"
+        valueField= "cumulativePercent"
+        axis="percentage"
+        name="cumulativePercent"
+        color="#6b71c3">
+      </dxi-series>
+
+      <dxo-legend
+        verticalAlignment="top"
+        horizontalAlignment="center">
+      </dxo-legend>
+
+</dx-chart>
+
+<br>
+<br>
+<!--*******************************************************************************************-->
+
+
+<div id = "chart-demo">
+  <dx-chart 
+    title="Population: Age Structure (2000)"
+    palette="Harmony Light"
+    [dataSource]="populationData">
+
+    <dxi-series valueField ="y1564" name="15-64 yearsx"></dxi-series>
+    <dxi-series valueField = "y014" name="0-14 years"></dxi-series>
+    <dxi-series valueField = "y65"  name="65 years and older"></dxi-series>
+
+    <dxo-common-series-settings
+      #commonSeries
+      argumentField="country"
+      type="area">
+    </dxo-common-series-settings>
+
+    <dxo-margin [bottom]="20"></dxo-margin>
+
+    <dxo-argument-axis [valueMarginsEnabled]="false"></dxo-argument-axis>
+
+    <dxo-export [enabled]="true"></dxo-export>
+
+    <dxo-legend 
+      verticalAlignment="bottom"
+      horizontalAlignment="center">
+    </dxo-legend>
+
+  </dx-chart>
+</div>
+
+<br>
+<br>
+<!--**********************************************************************************************-->
+<div>
+  <dx-chart 
+    title="Corporations with Highest Market Value"
+    palette="Harmony Light"
+    [dataSource]="corporationsInfo">
+
+    <dxi-series valueField="y2005" name="2005"></dxi-series>
+    <dxi-series valueField="y2004" name="2004"></dxi-series>
+
+    <dxo-common-series-settings
+      #commonSeries
+      argumentField ="company"
+      type="splinearea">
+    </dxo-common-series-settings>
+
+    <dxo-margin [bottom]= "20"></dxo-margin>
+
+    <dxo-argument-axis [valueMarginsEnabled]="false"></dxo-argument-axis>
+    
+    <dxo-export [enabled]="true"></dxo-export>
+    
+    <dxo-legend
+      verticalAlignment = "bottom"
+      horizontalAlignment = "center">
+    </dxo-legend>
+    
+  </dx-chart>
+</div>
+
+<br>
+<br>
+<!--**********************************************************************************************-->
+
+<dx-chart
+  id="chart"
+  [dataSource]="orngData">
+
+  <dxi-series
+    argumentField="day"
+    valueField="oranges"
+    name="My oranges"
+    type="bar"
+    color="crimson">
+  </dxi-series>
+
+</dx-chart>
+
+<br>
+<br>
+<!--**********************************************************************************************-->
+
+<dx-chart 
+  id="chart"
+  title="Gross State Product within the Great Lakes Region"
+  [dataSource]="grossProductData"
+  (onPointClick)="onPointClick($event)">
+  <dxi-series valueField="year2004" name="2004"></dxi-series>
+  <dxi-series valueField="year2001" name="2001"></dxi-series>
+  <dxi-series valueField="year1998" name="1998"></dxi-series>
+
+  <dxo-common-series-settings
+    argumentField = "state"
+    type="bar"
+    hoverMode="allArgumentPoints"
+    selectionMode="allArgumentpoints">
+
+    <dxo-label 
+      [visible]="true"
+      [format]="{
+        type:'fixedPoint',
+        precision: 1}">
+    </dxo-label>
+
+  </dxo-common-series-settings>
+
+  <dxo-legend 
+    verticalAlignment="bottom"
+    horizontalAlignment="center">
+  </dxo-legend>
+
+  <dxo-export [enabled]= "true"></dxo-export>
+
+</dx-chart>
+
+<br>
+<br>
+<!--**********************************************************************************************-->
+
+<dx-chart
+  id="chart"
+  title="Male Age Structure"
+  [dataSource]="maleAgeStruct">
+  <dxi-series valueField="young" name="0-14"></dxi-series>
+  <dxi-series valueField="middle" name="15-64"></dxi-series>
+  <dxi-series valueField="older" name="65 and older"></dxi-series>
+
+  <dxi-value-axis positon="right">
+    <dxo-title text="millions"></dxo-title>
+  </dxi-value-axis>
+
+  <dxo-common-series-settings
+    argumentField ="state"
+    type="stackedBar">
+  </dxo-common-series-settings>
+
+  <dxo-legend
+    verticalAlignment="bottom"
+    horizontalAlignment="center"
+    itemTextPosition="top">
+  </dxo-legend>
+
+  <dxo-export [enabled]="true"></dxo-export>
+
+  <dxo-tooltip
+    [enabled]="true"
+    loaction="top"
+    [customizeTooltip]="StackedBarToolTip">
+  </dxo-tooltip>
+
+</dx-chart>
+
+<br>
+<br>
+<!--**********************************************************************************************-->
+
+<dx-chart
+  id="chart"
+  [class]="isFirstLevel?'pointer-on-bars':''"
+  [dataSource]="DD_Countries"
+  (onPointClick)="DD_onPointClick($event)"
+  title="The Most Populated Countries by Continets"
+  [customizePoint]="customizePoint">
+
+  <dxi-series type="bar"></dxi-series>
+  <dxo-legend [visible]="false"></dxo-legend>
+  <dxi-value-axis [showZero]="false"></dxi-value-axis>
+
+</dx-chart>
+
+<dx-button
+  text="back"
+  icon="chevronleft"
+  [visible]="!isFirstLevel"
+  (onClick)="onButtonClick()"
+  position="top">
+
+</dx-button>
+
+<br>
+<br>
+<!--**********************************************************************************************-->
+
+<dx-chart 
+  id="chart"
+  [dataSource]="AC_countriesInfo"
+  palette ="soft"
+  title="Percent of total Energy Production">
+  <dxi-series valueField="oil" name="Oil Production"></dxi-series>
+  <dxi-series valueField="gas" name="Gas Production"></dxi-series>
+  <dxi-series valueField="coal" name="Coal Production"></dxi-series>
+
+  <dxo-common-series-settings
+    argumentField="state"
+    type="bar"
+    [ignoreEmptyPoints]="true"
+    [barPadding]="0.8">
+  </dxo-common-series-settings>
+
+  <dxo-legend
+    verticalAlignment="bottom"
+    horizontalAlignment="center">
+  </dxo-legend>
+
+  <dxo-export [enabled]="true"></dxo-export>
+</dx-chart>
+
+<br>
+<br>
+<!--**********************************************************************************************-->
+
+<dx-pie-chart
+  id="pie"
+  type="doughnut"
+  title="The Population of Continents and Regions"
+  palette = "Soft Pastel"
+  [dataSource]="DN_populationByRegions"
+  (onPointClick)="DN_pointClickHandler($event)">
+
+  <dxi-series
+    argumentField = "region">
+    <dxo-label
+      [visible]="true"
+      format="millions">
+      <dxo-connector [visible]="true"></dxo-connector>
+    </dxo-label>
+
+    <dxo-hover-style
+      color="#ffd700">
+    </dxo-hover-style>
+
+  </dxi-series>
+
+  <dxo-export [enabled]="true"></dxo-export>
+
+  <dxo-legend 
+    [margin]="0"
+    horizontalAlignment="right"
+    verticalAlignment="top">
+  </dxo-legend>
+
+  <dxo-tooltip
+    [enabled]="true"
+    [customizeTooltip]="Dn_customizeTooltip"
+    format="millions">
+  </dxo-tooltip>
+
+</dx-pie-chart>
+
+<br>
+<br>
+<!--*********************************************************************************************-->
+

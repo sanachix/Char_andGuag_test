@@ -19,6 +19,7 @@
     ],
     "baseUrl": "src",
     "paths": {
+      "jszip":["../node_modules/jszip/dist/jszip.min.js"],
       "@app/*": ["app/*"],
       "@env/*": ["environments/*"]
     }

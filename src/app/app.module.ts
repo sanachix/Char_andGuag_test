@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ChartsComponent } from './charts/charts.component';
 import { ChartsModule } from '@app/charts/charts.module';
+import { GaugesComponent } from './gauges/gauges.component';
+import { GaugesModule } from '@app/gauges/gauges.module';
 
 @NgModule({
   imports: [
@@ -26,6 +28,7 @@ import { ChartsModule } from '@app/charts/charts.module';
     HomeModule,
     AboutModule,
     ChartsModule,
+    GaugesModule,
     AppRoutingModule
   ],
   declarations: [AppComponent],
