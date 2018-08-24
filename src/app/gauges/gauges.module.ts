@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GaugesComponent } from '@app/gauges/gauges.component';
 import { GaugesRouterModule } from '@app/gauges/gauges-router.module';
-import { DxBarGaugeModule, DxCircularGaugeModule, DxLinearGaugeModule, DxSliderModule } from '../../../node_modules/devextreme-angular';
+import { DxBarGaugeModule, DxCircularGaugeModule, DxLinearGaugeModule, DxSliderModule, DxCheckBoxModule } from '../../../node_modules/devextreme-angular';
 
 @NgModule({
   imports: [
@@ -11,7 +11,9 @@ import { DxBarGaugeModule, DxCircularGaugeModule, DxLinearGaugeModule, DxSliderM
     DxBarGaugeModule,
     DxCircularGaugeModule,
     DxLinearGaugeModule,
-    DxSliderModule
+    DxSliderModule,
+    DxCheckBoxModule,
+    DxCircularGaugeModule
   ],
   declarations: [GaugesComponent]
 })
